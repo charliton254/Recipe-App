@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import styled from 'styled-components';
-import '@splidejs/react-splide/css';
+import '@splidejs/react-splide/css'
+import '../App.css'
 
 function Veggies() {
     const [veggie, setVeggie] = useState([]);
@@ -26,7 +27,7 @@ function Veggies() {
   return (
     <div>
         <Wrapper>
-            <h3>Vegetarian Picks</h3>
+            <h3 className="picks-title" >Vegetarian Picks</h3>
             <Splide
             options={{
                 perPage: 3,
@@ -51,7 +52,8 @@ function Veggies() {
   )
 }
 const Wrapper = styled.div`
-    margin: 4rem 0 rem;
+    margin-bottom: 7rem;
+    background-color: light-pink;
 `;
 
 const Card = styled.div`

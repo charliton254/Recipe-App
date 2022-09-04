@@ -1,10 +1,12 @@
 import React from 'react'
 import Veggies from '../components/Veggies'
 import Popular from '../components/Popular'
+import Icons from '../components/Icons';
 
 function Home() {
   return (
-    <div> 
+    <div>  
+        <Icons/>     
         <Veggies/>
         <Popular/>
     </div>
