@@ -29,3 +29,30 @@
 .icons svg{
     color: white;
 }
+.icons:active {
+    background: linear-gradient(to right, #f27121, #e94057);
+}
+.form-div{
+    text-align: center;
+}
+.form{
+    width: 60%;
+    position: relative;
+    display: inline-block;
+}
+.input{
+    background: linear-gradient(35deg, #494949, #313131 );
+    color: white;
+    border-radius: 1rem;
+    padding: 1rem 3rem;
+    border: none;
+    outline: none;
+    width: 60%;
+    justify-content: center;
+}
+.svg{
+    position: absolute;
+    top: 50%;
+    transform: translate(100%, -50%);
+    color: white;
+}
