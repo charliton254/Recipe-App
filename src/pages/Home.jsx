@@ -1,15 +1,19 @@
 import React from 'react'
 import Veggies from '../components/Veggies'
 import Popular from '../components/Popular'
-import Icons from '../components/Icons';
+import { motion } from "framer-motion";
 
 function Home() {
   return (
-    <div>  
-        <Icons/>     
+    <motion.div
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}
+      transition={{duration:0.6}}
+      >      
         <Veggies/>
         <Popular/>
-    </div>
+    </motion.div>
   )
 }
 
