@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useParams, Link } from 'react-router-dom';
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 function Cuisine() {
 
@@ -11,8 +12,6 @@ function Cuisine() {
         const data = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${name}`);
         const recipes = await data.json();
         setCuisine(recipes.results);
-        console.log(recipes.results);
-
     }
 
     useEffect(() => {
@@ -20,12 +19,19 @@ function Cuisine() {
     }, [params.type]);
 
   return (
-    <Grid>
+    <Grid
+    initial={{opacity: 0}}
+    animate={{opacity: 1}}
+    exit={{opacity: 0}}
+    transition={{duration:0.5}}
+    >
         {cuisine.map((item) => {
             return(
                 <Card key={item.id}>
+                    <Link to={'/recipe/' + item.id}>
                     <img src={item.image} alt={item.title} /> 
                     <h4>{ item.title }</h4>
+                    </Link>
                 </Card>
             );
         })}
@@ -33,11 +39,11 @@ function Cuisine() {
   )
 }
 
-const Grid = styled.div`
+const Grid = styled(motion.div)`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-    grid-gap: 3rem;
-    margin-top: 3rem;
+    grid-gap: 4rem;
+    margin: 0% 10% 10% 5%;
 `
 const Card = styled.div`
     img{
